@@ -1,0 +1,31 @@
+<%@ jet package="com.qunar.donglinma.util" class="JavabeanGenerator" imports="java.util.Map java.util.Map.Entry com.qunar.donglinma.util.model.* java.util.Set"%>
+<%
+ClassInfo info = (ClassInfo) argument;
+String packageName = info.getPackageName();
+String className = info.getClassName();
+Map<String,String> arg = info.getProperties();
+Set<String> importList = info.getImportSet();
+%>
+package <%=packageName%>;
+<%if(importList != null){%>
+
+<%for(String tempImport : importList){%>
+import <%=tempImport%>;
+<%}%>
+
+<%}%>
+
+public class <%=className%>{
+	<%for(Entry<String, String> entry : arg.entrySet()){%>
+	private <%=entry.getValue()%> <%=entry.getKey()%>;
+	<%}
+	for(Entry<String, String> entry : arg.entrySet()){%>
+	
+	public void set<%=entry.getKey().substring(0,1).toUpperCase() + entry.getKey().substring(1)%>(<%=entry.getValue()%> <%=entry.getKey()%>){
+		this.<%=entry.getKey()%> = <%=entry.getKey()%>;
+	}
+	
+	public <%=entry.getValue()%> get<%=entry.getKey().substring(0,1).toUpperCase() + entry.getKey().substring(1)%>(){
+		return this.<%=entry.getKey()%>;
+	}<%}%>
+}

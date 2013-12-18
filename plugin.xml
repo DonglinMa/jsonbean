@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="JSON BEAN"
+            id="com.qunar.donglinma.jsonbean">
+      </category>
+      <wizard
+            name="Json Bean File"
+            icon="icons/sample.gif"
+            category="com.qunar.donglinma.jsonbean"
+            class="com.qunar.donglinma.jsonbean.wizards.SampleNewWizard"
+            id="com.qunar.donglinma.jsonbean.wizards.SampleNewWizard">
+      </wizard>
+   </extension>
+
+</plugin>
